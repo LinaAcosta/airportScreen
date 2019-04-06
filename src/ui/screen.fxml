@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.ScreenController">
+   <top>
+      <AnchorPane fx:id="ap" prefHeight="25.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <ComboBox fx:id="comboBox" layoutX="503.0" prefHeight="25.0" prefWidth="91.0" promptText="Sort by">
+             <items>
+               <FXCollections>
+                <String fx:id="Date" />
+                <String fx:id="Destination" />
+                <String fx:id="Airline" />
+                <String fx:id="Gate" />
+               </FXCollections>
+             </items>
+            </ComboBox>
+            <Button layoutX="60.0" mnemonicParsing="false" onAction="#ahead" text="►" />
+            <Button layoutX="14.0" mnemonicParsing="false" onAction="#behind" text="◄" />
+            <Label layoutX="121.0" layoutY="2.0" prefHeight="22.0" prefWidth="124.0" text="Flights's number" />
+            <TextField fx:id="number" layoutX="226.0" prefHeight="25.0" prefWidth="52.0" />
+            <Button layoutX="352.0" mnemonicParsing="false" onAction="#sortNormally" text="Search" />
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <Label fx:id="label" prefHeight="324.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>
