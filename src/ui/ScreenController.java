@@ -29,6 +29,8 @@ public class ScreenController {
     	screen.generateRandomFlights(num);
     	screen.sortByGate();
     	screen.getMessage();
+    	long time = System.currentTimeMillis();
+    	System.out.println("time: " + time);
 
     }
 
@@ -49,6 +51,8 @@ public class ScreenController {
     	screen.generateRandomFlights(num);
     	String airline = input.getText();
     	screen.searchByAirLine(airline);
+    	long time = System.currentTimeMillis();
+    	System.out.println("time: " + time);
 
     }
 
@@ -66,6 +70,8 @@ public class ScreenController {
         	Date date = new Date(0,month,year,0,day,0);
         	screen.searchByDate(date);   	
     	}
+    	long time = System.currentTimeMillis();
+    	System.out.println("time: " + time);
     }
 
     @FXML
@@ -75,6 +81,8 @@ public class ScreenController {
     	screen.generateRandomFlights(num);
     	String destination = input.getText();
     	screen.searchByDestination(destination);
+    	long time = System.currentTimeMillis();
+    	System.out.println("time: " + time);
 
     }
 
@@ -85,7 +93,8 @@ public class ScreenController {
     	screen.generateRandomFlights(num);
     	int gate = Integer.parseInt(input.getText());
     	screen.searchByGate(gate);
-    	
+    	long time = System.currentTimeMillis();
+    	System.out.println("time: " + time);
 
     }
 
@@ -96,6 +105,8 @@ public class ScreenController {
     	screen.generateRandomFlights(num);
     	int number = Integer.parseInt(input.getText());
     	screen.searchByNumber(number);
+    	long time = System.currentTimeMillis();
+    	System.out.println("time: " + time);
 
     }
 
@@ -106,6 +117,8 @@ public class ScreenController {
     	screen.generateRandomFlights(num);
     	screen.sortByAirline();
     	screen.getMessage();
+    	long time = System.currentTimeMillis();
+    	System.out.println("time: " + time);
 
     }
 
@@ -116,6 +129,8 @@ public class ScreenController {
     	screen.generateRandomFlights(num);
     	screen.sortByDestination();
     	screen.getMessage();
+    	long time = System.currentTimeMillis();
+    	System.out.println("time: " + time);
 
     }
 
@@ -126,6 +141,8 @@ public class ScreenController {
     	screen.generateRandomFlights(num);
     	screen.sortByNumber();
     	screen.getMessage();
+    	long time = System.currentTimeMillis();
+    	System.out.println("time: " + time);
     }
 
     @FXML
@@ -135,6 +152,8 @@ public class ScreenController {
     	screen.generateRandomFlights(num);
     	screen.sortNormally();
     	screen.getMessage();
+    	long time = System.currentTimeMillis();
+    	System.out.println("time: " + time);
 
     }
 

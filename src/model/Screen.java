@@ -205,12 +205,15 @@ public class Screen {
     			array.add(flights[i]);
     		}
     	}
-    	String message = "";
-    	for(int i = 0; i<array.size(); i++) {
-    		message += array.get(i).getMessage();
-    		message += "\n";
+    	if(array != null) {
+    		String message = "";
+        	for(int i = 0; i<array.size(); i++) {
+        		message += array.get(i).getMessage();
+        		message += "\n";
+        	}
+        	System.out.println(message);
+        	
     	}
-    	System.out.println(message);
     }
     public void searchByDestination(String destination) {
     	ArrayList<Flight> array = new ArrayList<>();
