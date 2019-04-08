@@ -1,26 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.ScreenController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.ScreenController">
    <top>
-      <AnchorPane prefHeight="25.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="ap" prefHeight="25.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <ComboBox fx:id="comboBox" layoutX="503.0" prefHeight="25.0" prefWidth="91.0" promptText="Sort by" />
-            <Button layoutX="60.0" mnemonicParsing="false" onAction="#ahead" text="►" />
+            <Button layoutX="41.0" mnemonicParsing="false" onAction="#ahead" text="►" />
             <Button layoutX="14.0" mnemonicParsing="false" onAction="#behind" text="◄" />
-            <Label layoutX="121.0" layoutY="2.0" prefHeight="22.0" prefWidth="124.0" text="Flights's number" />
-            <TextField fx:id="number" layoutX="226.0" prefHeight="25.0" prefWidth="52.0" />
-            <Button layoutX="352.0" mnemonicParsing="false" onAction="#sortNormally" text="Search" />
+            <Label layoutX="68.0" layoutY="2.0" prefHeight="22.0" prefWidth="124.0" text="Flights's number" />
+            <TextField fx:id="number" layoutX="166.0" prefHeight="25.0" prefWidth="52.0" />
+            <Button layoutX="218.0" mnemonicParsing="false" onAction="#sortNormally" prefHeight="25.0" prefWidth="92.0" text="Sort Normally" />
+            <Button layoutX="310.0" mnemonicParsing="false" onAction="#sortByAirline" text="Sort by airline" />
+            <Button layoutX="400.0" layoutY="1.0" mnemonicParsing="false" onAction="#sortByNumber" prefHeight="25.0" prefWidth="99.0" text="Sort by number" />
+            <Button layoutX="499.0" mnemonicParsing="false" onAction="#SortByGate" text="Sort by gate" />
+            <Button layoutX="580.0" mnemonicParsing="false" onAction="#sortByDestination" text="Sort by destination" />
          </children>
       </AnchorPane>
    </top>
    <center>
-      <Label fx:id="label" prefHeight="324.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+      <Label fx:id="label" prefHeight="352.0" prefWidth="700.0" BorderPane.alignment="CENTER" />
    </center>
+   <bottom>
+      <AnchorPane prefHeight="29.0" prefWidth="683.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutY="-1.0" prefHeight="25.0" prefWidth="58.0" text="Search by: " />
+            <Button layoutX="64.0" layoutY="-1.0" mnemonicParsing="false" onAction="#searchByDate" prefHeight="24.0" prefWidth="73.0" text="Date" />
+            <Button layoutX="137.0" layoutY="-1.0" mnemonicParsing="false" onAction="#searchByAirline" prefHeight="24.0" prefWidth="73.0" text="Airline" />
+            <Button layoutX="210.0" layoutY="-1.0" mnemonicParsing="false" onAction="#searchByNumber" prefHeight="24.0" prefWidth="73.0" text="Number" />
+            <Button layoutX="283.0" layoutY="-1.0" mnemonicParsing="false" onAction="#searchByGate" prefHeight="24.0" prefWidth="73.0" text="Gate" />
+            <Button layoutX="356.0" layoutY="-1.0" mnemonicParsing="false" onAction="#searchByDestination" prefHeight="25.0" prefWidth="86.0" text="Destination" />
+         </children>
+      </AnchorPane>
+   </bottom>
 </BorderPane>
