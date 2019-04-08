@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import model.Date;
 import model.Screen;
 
 public class ScreenController {
@@ -18,6 +19,8 @@ public class ScreenController {
     @FXML
     private Label label;
     private Screen screen;
+    @FXML
+    private TextField input;
 
     @FXML
     void SortByGate(ActionEvent event) {
@@ -41,26 +44,58 @@ public class ScreenController {
 
     @FXML
     void searchByAirline(ActionEvent event) {
+    	screen = new Screen();
+    	int num = Integer.parseInt(number.getText());
+    	screen.generateRandomFlights(num);
+    	String airline = input.getText();
+    	screen.searchByAirLine(airline);
 
     }
 
     @FXML
     void searchByDate(ActionEvent event) {
-
+    	screen = new Screen();
+    	int num = Integer.parseInt(number.getText());
+    	screen.generateRandomFlights(num);
+    	String ln = input.getText();
+    	while(ln != null) {
+    		String[] parts = ln.split("/");
+        	int year = Integer.parseInt(parts[0]);
+        	int month = Integer.parseInt(parts[1]);
+        	int day = Integer.parseInt(parts[2]);
+        	Date date = new Date(0,month,year,0,day,0);
+        	screen.searchByDate(date);   	
+    	}
     }
 
     @FXML
     void searchByDestination(ActionEvent event) {
+    	screen = new Screen();
+    	int num = Integer.parseInt(number.getText());
+    	screen.generateRandomFlights(num);
+    	String destination = input.getText();
+    	screen.searchByDestination(destination);
 
     }
 
     @FXML
     void searchByGate(ActionEvent event) {
+    	screen = new Screen();
+    	int num = Integer.parseInt(number.getText());
+    	screen.generateRandomFlights(num);
+    	int gate = Integer.parseInt(input.getText());
+    	screen.searchByGate(gate);
+    	
 
     }
 
     @FXML
     void searchByNumber(ActionEvent event) {
+    	screen = new Screen();
+    	int num = Integer.parseInt(number.getText());
+    	screen.generateRandomFlights(num);
+    	int number = Integer.parseInt(input.getText());
+    	screen.searchByNumber(number);
 
     }
 
