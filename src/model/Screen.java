@@ -113,7 +113,7 @@ public class Screen {
         Comparator<Flight> flightComparator = new FlightDestinationComparator();
 		Arrays.sort(flights,flightComparator);
     }
-    public void searchByDate(Date date) {
+    public String searchByDate(Date date) {
     	Flight f = null;
     	ArrayList<Flight> array = new ArrayList<>();
     	for(int i = 0; i<flights.length; i++) {
@@ -123,18 +123,16 @@ public class Screen {
     		}
     		
     	}
-    	if(array != null) {
-    		String message = "";
-        	for(int i = 0; i<array.size(); i++) {
-        		message += array.get(i).getMessage();
-        		message += "\n";
-        	}
-        	System.out.println(message);
-        	
-    	}
+    	String message = "";
+        for(int i = 0; i<array.size(); i++) {
+        	message += array.get(i).getMessage();
+        	message += "\n";
+        }
+        System.out.println(message);
+        return message;	
     	
     }
-    public void searchByNumber(int number) {
+    public String searchByNumber(int number) {
     	boolean stop = false;
     	int low = 0;
     	int hight = flights.length - 1;
@@ -154,20 +152,21 @@ public class Screen {
         		}
         	}
     	}
-    	if(array != null) {
-    		String message = "";
-        	for(int i = 0; i<array.size(); i++) {
-        		message += array.get(i).getMessage();
-        		message += "\n";
-        	}
-        	System.out.println(message);
+    	
+    	String message = "";
+        for(int i = 0; i<array.size(); i++) {
+        	message += array.get(i).getMessage();
+        	message += "\n";
+        }
+        System.out.println(message);
+        return message;
         	
-    	}
+    	
     	
     	
     }
     	
-    public void searchByGate(int gate) {
+    public String searchByGate(int gate) {
     	boolean stop = false;
     	int low = 0;
     	int hight = flights.length - 1;
@@ -187,35 +186,33 @@ public class Screen {
         		}
         	}
     	}
-    	if(array != null) {
-    		String message = "";
-        	for(int i = 0; i<array.size(); i++) {
-        		message += array.get(i).getMessage();
-        		message += "\n";
-        	}
-        	System.out.println(message);
+    	String message = "";
+        for(int i = 0; i<array.size(); i++) {
+        	message += array.get(i).getMessage();
+        	message += "\n";
+        }
+        System.out.println(message);
         	
-    	}
+    	return message;
     	
     }
-    public void searchByAirLine(String airline) {
+    public String searchByAirLine(String airline) {
     	ArrayList<Flight> array = new ArrayList<>();
     	for(int i = 0; i<flights.length; i++) {
     		if(flights[i].getNameAirline() == airline) {
     			array.add(flights[i]);
     		}
     	}
-    	if(array != null) {
-    		String message = "";
-        	for(int i = 0; i<array.size(); i++) {
-        		message += array.get(i).getMessage();
-        		message += "\n";
-        	}
-        	System.out.println(message);
-        	
-    	}
+    	String message = "";
+        for(int i = 0; i<array.size(); i++) {
+        	message += array.get(i).getMessage();
+        	message += "\n";
+        }
+        System.out.println(message);
+        return message;
+    	
     }
-    public void searchByDestination(String destination) {
+    public String searchByDestination(String destination) {
     	ArrayList<Flight> array = new ArrayList<>();
     	for(int i = 0; i<flights.length; i++) {
     		if(flights[i].getDestination() == destination) {
@@ -229,6 +226,7 @@ public class Screen {
     		message += "\n";
     	}
     	System.out.println(message);
+    	return message;
     	
     }
     
