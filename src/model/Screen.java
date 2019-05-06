@@ -126,7 +126,7 @@ public class Screen {
   	}
     	   
     }
-    /**
+    
     public String getMessage() {
     	String message = "";
     	Flight current = first;
@@ -135,10 +135,9 @@ public class Screen {
     		message += "\n";
     		current = current.getNext();
     	}
-    	System.out.println(message);
     	return message;
     }
-    */
+    
     public void sortByAirline() {
       Flight current;
   	  Flight next;
@@ -186,123 +185,5 @@ public class Screen {
     		a = a.getNext();
     	}
     }
-    /**
-    public String searchByDate(Date date) {
-    	Flight f = null;
-    	ArrayList<Flight> array = new ArrayList<>();
-    	for(int i = 0; i<flights.length; i++) {
-    		if(flights[i].getDate().getYear() == date.getYear() && flights[i].getDate().getMonth() == date.getMonth() && flights[i].getDate().getDay() == date.getDay()) {
-    			f = flights[i];
-    			array.add(f);
-    		}
-    		
-    	}
-    	String message = "";
-        for(int i = 0; i<array.size(); i++) {
-        	message += array.get(i).getMessage();
-        	message += "\n";
-        }
-        System.out.println(message);
-        return message;	
-    	
-    }
-    public String searchByNumber(int number) {
-    	boolean stop = false;
-    	int low = 0;
-    	int hight = flights.length - 1;
-    	ArrayList<Flight> array = new ArrayList<>();
-    	for(int i = 0; i<flights.length; i++) {
-    		while(low <= hight && !stop) {
-        		int mid = (low+hight)/2;
-        		if(flights[mid].getNumberFlight() == number) {
-        			stop = true;
-        			array.add(flights[mid]);
-        		}
-        		else if(number < flights[mid].getNumberFlight()) {
-        			hight = mid -1;
-        		}
-        		else {
-        			low = mid + 1;
-        		}
-        	}
-    	}
-    	
-    	String message = "";
-        for(int i = 0; i<array.size(); i++) {
-        	message += array.get(i).getMessage();
-        	message += "\n";
-        }
-        System.out.println(message);
-        return message;
-        	
-    	
-    	
-    	
-    }
-    	
-    public String searchByGate(int gate) {
-    	boolean stop = false;
-    	int low = 0;
-    	int hight = flights.length - 1;
-    	ArrayList<Flight> array = new ArrayList<>();
-    	for(int i = 0; i< flights.length; i++) {
-    		while(low <= hight && !stop) {
-        		int mid = (low+hight)/2;
-        		if(flights[mid].getGate() == gate) {
-        			stop = true;
-        			array.add(flights[mid]);
-        		}
-        		else if(gate < flights[mid].getGate()) {
-        			hight = mid -1;
-        		}
-        		else {
-        			low = mid + 1;
-        		}
-        	}
-    	}
-    	String message = "";
-        for(int i = 0; i<array.size(); i++) {
-        	message += array.get(i).getMessage();
-        	message += "\n";
-        }
-        System.out.println(message);
-        	
-    	return message;
-    	
-    }
-    public String searchByAirLine(String airline) {
-    	ArrayList<Flight> array = new ArrayList<>();
-    	for(int i = 0; i<flights.length; i++) {
-    		if(flights[i].getNameAirline() == airline) {
-    			array.add(flights[i]);
-    		}
-    	}
-    	String message = "";
-        for(int i = 0; i<array.size(); i++) {
-        	message += array.get(i).getMessage();
-        	message += "\n";
-        }
-        System.out.println(message);
-        return message;
-    	
-    }
-    public String searchByDestination(String destination) {
-    	ArrayList<Flight> array = new ArrayList<>();
-    	for(int i = 0; i<flights.length; i++) {
-    		if(flights[i].getDestination() == destination) {
-    			array.add(flights[i]);
-    		}
-    		
-    	}
-    	String message = "";
-    	for(int i = 0; i<array.size(); i++) {
-    		message += array.get(i).getMessage();
-    		message += "\n";
-    	}
-    	System.out.println(message);
-    	return message;
-    	
-    }
-    */
     
 }
