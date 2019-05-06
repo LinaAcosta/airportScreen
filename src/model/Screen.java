@@ -1,43 +1,42 @@
 package model;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Random;
 
 public class Screen {
-	private Flight[] flights;
+	private Flight first;
     public Screen() {
     	
     }
     public void generateRandomFlights(int num) {
-    	flights = new Flight[num];
     	String[] nairline= new String[]{"AVIANCA", "AIRLINES", "LAN", "VIVACOLOMBIA", "EASYFLIGHT"};
     	String[] des = new String[] {"ESPAÑA", "EEUU", "PERU", "MEXICO", "ARGENTINA"};
-    	for(int i = 0; i< flights.length; i++) {
-    		int hour = (int) (Math.random()*12 + 1);
-    		int minut = (int) (Math.random()*59 + 1);
-    		int number = (int) (Math.random()*500 + 3);
-    		int gate = (int) (Math.random()*12 + 1);
-    		Random aleatorio = new Random();
-    		int year = aleatorio.nextInt(10)+2018;
-    		int month = aleatorio.nextInt(12)+1;
-    		int day = aleatorio.nextInt(30)+1;
-    		int moment = (int) (Math.random()*2 + 1);
-    		Date date = new Date(moment, month, year, hour, day, minut);
-    		int destinationNumber = (int) (Math.random()*4 + 1);
-    		String dest = des[destinationNumber];
-    		int airlineNumber = (int) (Math.random()*4 + 1);
-    		String airline = nairline[airlineNumber];
-    		flights[i] = new Flight(date, dest, number, airline, gate);
+    	int hour = (int) (Math.random()*12 + 1);
+    	int minut = (int) (Math.random()*59 + 1);
+    	int number = (int) (Math.random()*500 + 3);
+    	int gate = (int) (Math.random()*12 + 1);
+    	Random aleatorio = new Random();
+    	int year = aleatorio.nextInt(10)+2018;
+    	int month = aleatorio.nextInt(12)+1;
+    	int day = aleatorio.nextInt(30)+1;
+    	int moment = (int) (Math.random()*2 + 1);
+    	Date date = new Date(moment, month, year, hour, day, minut);
+    	int destinationNumber = (int) (Math.random()*4 + 1);
+    	String dest = des[destinationNumber];
+    	int airlineNumber = (int) (Math.random()*4 + 1);
+    	String airline = nairline[airlineNumber];
+    	first = new Flight(date, dest, number, airline, gate, null);
+    	Flight current = first;
+    	for(int i = 0; i<num; i++) {
+    		current.setNext(current);
+    		current = current.getNext();
     	}
     	
-    }
-    public Flight[] getFlights(){
-    	return flights;
+    	
     }
     
-    
+    /**
     public void sortNormally() {
     	int i;
     	int k;
@@ -229,5 +228,6 @@ public class Screen {
     	return message;
     	
     }
+    */
     
 }

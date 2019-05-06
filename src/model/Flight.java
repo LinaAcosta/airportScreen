@@ -6,12 +6,14 @@ public class Flight implements Comparable<Flight>{
 	private int numberFlight;
 	private String dest;
 	private int gate;
-	public Flight(Date date,String des, int numberFlight,String nairline, int gate) {
+	private Flight next;
+	public Flight(Date date,String des, int numberFlight,String nairline, int gate, Flight next) {
 		this.date = date;
 		this.nameA = nairline;
 		this.numberFlight = numberFlight;
 		this.dest = des;
 		this.gate = gate;
+		this.next = next;
 	}
 	public Date getDate() {
 		return date;
@@ -31,6 +33,12 @@ public class Flight implements Comparable<Flight>{
 	public String getMessage() {
 		String message = (date.getYear() + "/" + date.getMonth() + "/" + date.getDay() + "      " + date.getHour() + ":" + date.getMinut() + date.defineMoment() + " " + nameA + " " + numberFlight + " " + dest + "    "  + gate);
 		return message;
+	}
+	public Flight getNext() {
+		return next;
+	}
+	public void setNext(Flight f) {
+		next = f;
 	}
 	@Override
 	public int compareTo(Flight f1) {
