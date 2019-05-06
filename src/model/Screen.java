@@ -9,7 +9,7 @@ public class Screen {
     public Screen() {
     	
     }
-    public void generateRandomFlights(int num) {
+    public Flight generate() {
     	String[] nairline= new String[]{"AVIANCA", "AIRLINES", "LAN", "VIVACOLOMBIA", "EASYFLIGHT"};
     	String[] des = new String[] {"ESPAÑA", "EEUU", "PERU", "MEXICO", "ARGENTINA"};
     	int hour = (int) (Math.random()*12 + 1);
@@ -26,13 +26,16 @@ public class Screen {
     	String dest = des[destinationNumber];
     	int airlineNumber = (int) (Math.random()*4 + 1);
     	String airline = nairline[airlineNumber];
-    	first = new Flight(date, dest, number, airline, gate, null);
+    	Flight f = new Flight(date, dest, number, airline, gate, null);
+    	return f;
+    }
+    public void generateRandomFlights(int num) {
+    	first = generate();
     	Flight current = first;
-    	for(int i = 0; i<num; i++) {
-    		current.setNext(current);
+    	for(int i = 0; i<num - 1; i++) {
+    		current.setNext(generate());
     		current = current.getNext();
     	}
-    	
     	
     }
     
@@ -73,45 +76,117 @@ public class Screen {
             }
         }
     }
+    */
     public void sortByNumber() {
-    	Flight temp;
-        for(int i=1;i < flights.length;i++){
-            for (int j=0 ; j < flights.length- 1; j++){
-                if (flights[j].getNumberFlight() > flights[j+1].getNumberFlight()){
-                    temp = flights[j];
-                    flights[j] = flights[j+1];
-                    flights[j+1] = temp;
-                }
-            }
-        }  
+    	  Flight current;
+    	  Flight next;
+    	  Flight t;
+    	  current = first;
+    	  while(current != null){
+    	        next = current.getNext();
+    	        while(next!=null){
+    	             if(current.getNumberFlight() > next.getNumberFlight()){
+    	                t = next;
+    	                next = current;
+    	                current = t;          
+    	             }
+    	             next = next.getNext();
+    	        }    
+    	        current = current.getNext(); 
+    	 }
+    	Flight a = first;
+    	while(a!= null) {
+    		System.out.print(a.getMessage() + "\n");
+    		a = a.getNext();
+    	}
     }
+    
+    
     public void sortByGate() {
-    	for (int i=1; i < flights.length; i++) {
-	         Flight aux = flights[i];
-	         int j;
-	         for (j=i-1; j >= 0 && flights[j].getGate() > aux.getGate(); j--){
-	              flights[j+1] = flights[j];
-	          }
-	         flights[j+1] = aux;
-	      }
+      Flight current;
+  	  Flight next;
+  	  Flight t;
+  	  current = first;
+  	  while(current != null){
+  	        next = current.getNext();
+  	        while(next!=null){
+  	             if(current.getGate() > next.getGate()){
+  	                t = next;
+  	                next = current;
+  	                current = t;          
+  	             }
+  	             next = next.getNext();
+  	        }    
+  	        current = current.getNext(); 
+  	 }
+  	Flight a = first;
+  	while(a!= null) {
+  		System.out.print(a.getMessage() + "\n");
+  		a = a.getNext();
+  	}
     	   
     }
+    /**
     public String getMessage() {
     	String message = "";
-    	for(int i = 0; i<flights.length; i++) {
-    		message += flights[i].getMessage();
+    	Flight current = first;
+    	while(current != null) {
+    		message += current.getMessage();
     		message += "\n";
+    		current = current.getNext();
     	}
     	System.out.println(message);
     	return message;
     }
+    */
     public void sortByAirline() {
-    	Arrays.sort(flights);
+      Flight current;
+  	  Flight next;
+  	  Flight t;
+  	  current = first;
+  	  while(current != null){
+  	        next = current.getNext();
+  	        while(next!=null){
+  	             if(current.getNameAirline().compareTo(next.getNameAirline()) < 0){
+  	                t = next;
+  	                next = current;
+  	                current = t;          
+  	             }
+  	             next = next.getNext();
+  	        }    
+  	        current = current.getNext(); 
+  	 }
+  	Flight a = first;
+  	while(a!= null) {
+  		System.out.print(a.getMessage() + "\n");
+  		a = a.getNext();
+  	}
     }
+    
     public void sortByDestination() {
-        Comparator<Flight> flightComparator = new FlightDestinationComparator();
-		Arrays.sort(flights,flightComparator);
+    	  Flight current;
+    	  Flight next;
+    	  Flight t;
+    	  current = first;
+    	  while(current != null){
+    	        next = current.getNext();
+    	        while(next!=null){
+    	             if(current.getDestination().compareTo(next.getDestination()) < 0){
+    	                t = next;
+    	                next = current;
+    	                current = t;          
+    	             }
+    	             next = next.getNext();
+    	        }    
+    	        current = current.getNext(); 
+    	 }
+    	Flight a = first;
+    	while(a!= null) {
+    		System.out.print(a.getMessage() + "\n");
+    		a = a.getNext();
+    	}
     }
+    /**
     public String searchByDate(Date date) {
     	Flight f = null;
     	ArrayList<Flight> array = new ArrayList<>();

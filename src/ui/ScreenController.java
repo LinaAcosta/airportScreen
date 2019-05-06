@@ -29,7 +29,7 @@ public class ScreenController {
     	screen = new Screen();
     	int num = Integer.parseInt(number.getText());
     	screen.generateRandomFlights(num);
-    	//screen.sortByGate();
+    	screen.sortByGate();
     	//screen.getMessage();
     	long time = (System.currentTimeMillis() - starttime);
     	label.setText("time: " + time + "ms");
@@ -52,7 +52,7 @@ public class ScreenController {
     	screen = new Screen();
     	int num = Integer.parseInt(number.getText());
     	screen.generateRandomFlights(num);
-    	//screen.sortByAirline();
+    	screen.sortByAirline();
     	//screen.getMessage();
     	long time = (System.currentTimeMillis() - starttime);
     	label.setText("time: " + time + "ms");
@@ -66,7 +66,7 @@ public class ScreenController {
     	screen = new Screen();
     	int num = Integer.parseInt(number.getText());
     	screen.generateRandomFlights(num);
-    	//screen.sortByDestination();
+    	screen.sortByDestination();
     	//screen.getMessage();
     	long time = (System.currentTimeMillis() - starttime);
     	label.setText("time: " + time + "ms");
@@ -76,14 +76,14 @@ public class ScreenController {
 
     @FXML
     void sortByNumber(ActionEvent event) {
-    	long starttime = System.currentTimeMillis();
+    	//long starttime = System.currentTimeMillis();
     	screen = new Screen();
     	int num = Integer.parseInt(number.getText());
     	screen.generateRandomFlights(num);
-    	//screen.sortByNumber();
-    	//screen.getMessage();
-    	long time = (System.currentTimeMillis() - starttime);
-    	label.setText("time: " + time + "ms");
+    	screen.sortByNumber();
+       // screen.getMessage();
+    	//long time = (System.currentTimeMillis() - starttime);
+    	//label.setText("time: " + time + "ms");
 
     }
 
